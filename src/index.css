@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --background: 30 15% 6%;
+    --foreground: 40 20% 92%;
+
+    --card: 30 12% 10%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 30 12% 10%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 10% 16%;
+    --secondary-foreground: 40 20% 92%;
+
+    --muted: 30 8% 14%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 8% 18%;
+    --input: 30 8% 18%;
+    --ring: 24 100% 50%;
+
+    --radius: 0.75rem;
+
+    --warm-glow: 30 60% 20%;
+    --warm-overlay: 24 80% 50%;
+
+    --sidebar-background: 30 12% 8%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 24 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 30 10% 16%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 30 8% 18%;
+    --sidebar-ring: 24 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(24 100% 55%), hsl(35 100% 60%));
+  }
+
+  .bg-warm-gradient {
+    background: linear-gradient(180deg, hsl(30 15% 6%) 0%, hsl(30 12% 10%) 100%);
+  }
+
+  .bg-card-hover {
+    background: linear-gradient(135deg, hsl(30 12% 12%), hsl(30 10% 14%));
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 40px -10px hsl(24 100% 50% / 0.3);
+  }
+
+  .hero-overlay {
+    background: linear-gradient(180deg, hsl(30 15% 6% / 0.4) 0%, hsl(30 15% 6% / 0.85) 70%, hsl(30 15% 6%) 100%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}

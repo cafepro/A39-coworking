@@ -1,0 +1,99 @@
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+
+const plans = [
+  {
+    name: "1 día",
+    price: "15€",
+    period: "/día",
+    features: ["Acceso de lunes a viernes", "Espacio individual", "Uso de áreas comunes", "Horario de oficina"],
+    highlighted: false,
+  },
+  {
+    name: "1 semana",
+    price: "55€",
+    period: "/semana",
+    features: ["Acceso de lunes a viernes", "Espacio individual", "Uso de áreas comunes", "Uso de impresora"],
+    highlighted: true,
+  },
+  {
+    name: "Mensual",
+    price: "155€",
+    period: "/mes",
+    features: ["Acceso 24/7", "Espacio individual", "Uso de áreas comunes", "Uso de impresora"],
+    highlighted: false,
+  },
+];
+
+const PricingSection = () => {
+  return (
+    <section id="tarifas" className="py-24 bg-warm-gradient">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <p className="text-primary font-heading text-sm tracking-widest uppercase mb-3">Tarifas</p>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">
+            ¿Cuánto me va a costar?
+          </h2>
+          <p className="text-muted-foreground text-lg">Todos los precios tienen el IVA incluido.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {plans.map((plan, i) => (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className={`rounded-xl p-6 border flex flex-col ${
+                plan.highlighted
+                  ? "border-primary bg-card glow-orange scale-[1.02]"
+                  : "border-border bg-card"
+              }`}
+            >
+              {plan.highlighted && (
+                <span className="text-xs font-heading font-semibold text-primary uppercase tracking-wider mb-2">
+                  Popular
+                </span>
+              )}
+              <h3 className="font-heading text-xl font-semibold mb-4">{plan.name}</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-heading font-bold text-gradient">{plan.price}</span>
+                <span className="text-muted-foreground text-sm">{plan.period}</span>
+              </div>
+              <ul className="flex flex-col gap-3 mb-8 flex-1">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Check size={16} className="text-primary flex-shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contacto"
+                className={`text-center py-3 rounded-lg font-heading font-semibold transition ${
+                  plan.highlighted
+                    ? "bg-primary text-primary-foreground hover:brightness-110"
+                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                }`}
+              >
+                Contactar
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        <p className="text-center text-muted-foreground text-sm mt-8">
+          ¿Necesitas venir por horas o un espacio para cursos? ¡Escríbenos!
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default PricingSection;
