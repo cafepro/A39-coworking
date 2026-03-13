@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
 const ContactSection = () => {
@@ -120,7 +120,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-heading font-semibold mb-1">Ubicación</h4>
-                <p className="text-muted-foreground text-sm">Gijón, Asturias, España</p>
+                <p className="text-muted-foreground text-sm">Calle Alarcón 39, Gijón, Asturias, España</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -129,16 +129,23 @@ const ContactSection = () => {
               </div>
               <div>
                 <h4 className="font-heading font-semibold mb-1">Email</h4>
-                <p className="text-muted-foreground text-sm">info@almacen39coworking.es</p>
+                <p className="text-muted-foreground text-sm">almacen39.coworking@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Phone className="text-primary" size={20} />
+                <Instagram className="text-primary" size={20} />
               </div>
               <div>
-                <h4 className="font-heading font-semibold mb-1">Teléfono</h4>
-                <p className="text-muted-foreground text-sm">Contáctanos por email o redes</p>
+                <h4 className="font-heading font-semibold mb-1">Instagram</h4>
+                <a
+                  href="https://www.instagram.com/almacen39.coworking"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                >
+                  @almacen39.coworking
+                </a>
               </div>
             </div>
           </motion.div>
