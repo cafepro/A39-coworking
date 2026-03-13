@@ -84,6 +84,10 @@ export const translations = {
       locationValue: "Calle Alarcón 39, Gijón, Asturias, España",
       emailContactLbl: "Email",
     },
+    disclaimer: {
+      message: "🚧 Web en construcción. Las imágenes mostradas son ilustrativas y no corresponden al espacio real.",
+      close: "Entendido",
+    },
     footer: {
       copyright: (year: number) => `© ${year} Almacén 39 Coworking. Gijón, Asturias.`,
     },
@@ -173,6 +177,10 @@ export const translations = {
       locationLbl: "Location",
       locationValue: "Calle Alarcón 39, Gijón, Asturias, Spain",
       emailContactLbl: "Email",
+    },
+    disclaimer: {
+      message: "🚧 Site under construction. Images shown are illustrative and do not represent the actual space.",
+      close: "Got it",
     },
     footer: {
       copyright: (year: number) => `© ${year} Almacén 39 Coworking. Gijón, Asturias.`,
