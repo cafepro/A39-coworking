@@ -7,13 +7,37 @@ const ContactSection = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("¡Mensaje enviado! Te responderemos pronto.");
-    setName("");
-    setEmail("");
-    setMessage("");
+    setIsLoading(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          name,
+          email,
+          message,
+          subject: `Nuevo mensaje de contacto de ${name}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("¡Mensaje enviado! Te responderemos pronto.");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        toast.error("Algo salió mal. Por favor, inténtalo de nuevo.");
+      }
+    } catch {
+      toast.error("Error de conexión. Por favor, inténtalo de nuevo.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -76,9 +100,10 @@ const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="bg-primary text-primary-foreground font-heading font-semibold py-3 px-8 rounded-lg hover:brightness-110 transition glow-orange self-start"
+              disabled={isLoading}
+              className="bg-primary text-primary-foreground font-heading font-semibold py-3 px-8 rounded-lg hover:brightness-110 transition glow-orange self-start disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Enviar mensaje
+              {isLoading ? "Enviando..." : "Enviar mensaje"}
             </button>
           </motion.form>
 
