@@ -70,8 +70,10 @@ const PricingSection = () => {
           ))}
         </div>
 
-        <p className="text-center text-muted-foreground text-sm mt-8">
-          {t.pricing.footnote}
+        <p className="text-center mt-10">
+          <a href="#contacto" className="font-heading font-semibold text-lg hover:text-primary transition-colors">
+            {t.pricing.footnote}
+          </a>
         </p>
       </div>
     </section>

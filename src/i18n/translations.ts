@@ -45,7 +45,7 @@ export const translations = {
       subtitle: "Todos los precios tienen el IVA incluido.",
       popular: "Popular",
       contactBtn: "Contactar",
-      footnote: "¿Necesitas venir por horas o un espacio para cursos? ¡Escríbenos!",
+      footnote: "¿Tienes otras necesidades? Cuéntanoslo y te ayudamos",
       plans: [
         {
           name: "1 día",
@@ -139,7 +139,7 @@ export const translations = {
       subtitle: "All prices include VAT.",
       popular: "Popular",
       contactBtn: "Get in touch",
-      footnote: "Need to come by the hour or a space for workshops? Write to us!",
+      footnote: "Have other needs? Tell us and we'll help you out",
       plans: [
         {
           name: "1 day",
