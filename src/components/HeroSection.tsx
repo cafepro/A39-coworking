@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import heroImg from "@/assets/hero-coworking.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image */}
@@ -19,7 +22,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="text-primary font-heading text-lg tracking-widest uppercase mb-4"
         >
-          Coworking en Gijón
+          {t.hero.tagline}
         </motion.p>
 
         <motion.h1
@@ -38,7 +41,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10"
         >
-          Tu espacio de trabajo en Asturias. Mesas individuales, ambiente acogedor y todo lo que necesitas para ser productivo.
+          {t.hero.description}
         </motion.p>
 
         <motion.a
@@ -48,7 +51,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.45 }}
           className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-heading font-semibold text-lg hover:brightness-110 transition glow-orange"
         >
-          Ven a conocernos
+          {t.hero.cta}
         </motion.a>
       </div>
 

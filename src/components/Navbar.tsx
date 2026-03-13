@@ -1,17 +1,24 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Espacios", href: "#espacios" },
-  { label: "Tarifas", href: "#tarifas" },
-  { label: "Contacto", href: "#contacto" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Language } from "@/i18n/translations";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { t, language, setLanguage } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.inicio, href: "#inicio" },
+    { label: t.nav.servicios, href: "#servicios" },
+    { label: t.nav.espacios, href: "#espacios" },
+    { label: t.nav.tarifas, href: "#tarifas" },
+    { label: t.nav.contacto, href: "#contacto" },
+  ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === "es" ? "en" : ("es" as Language));
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -32,16 +39,30 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={toggleLanguage}
+            className="text-sm font-semibold font-heading text-muted-foreground hover:text-primary transition-colors border border-border rounded-md px-2.5 py-1"
+          >
+            {language === "es" ? "EN" : "ES"}
+          </button>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggleLanguage}
+            className="text-sm font-semibold font-heading text-muted-foreground hover:text-primary transition-colors border border-border rounded-md px-2.5 py-1"
+          >
+            {language === "es" ? "EN" : "ES"}
+          </button>
+          <button
+            className="text-foreground"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
