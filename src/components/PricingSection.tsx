@@ -42,7 +42,7 @@ const PricingSection = () => {
           <p className="text-muted-foreground text-lg">Todos los precios tienen el IVA incluido.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto items-center">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -50,10 +50,10 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className={`rounded-xl p-6 border flex flex-col ${
+              className={`rounded-xl border flex flex-col ${
                 plan.highlighted
-                  ? "border-primary bg-card glow-orange scale-[1.02]"
-                  : "border-border bg-card"
+                  ? "border-primary bg-card glow-orange z-10 py-6 px-7"
+                  : "border-border bg-card py-6 px-6"
               }`}
             >
               {plan.highlighted && (

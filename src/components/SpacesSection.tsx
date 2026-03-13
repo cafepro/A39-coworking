@@ -7,10 +7,10 @@ import meetingImg from "@/assets/meeting-room.jpg";
 
 const spaces = [
   { img: workspaceImg, title: "Espacio de trabajo", desc: "Mesas individuales con todo lo necesario" },
-  { img: relaxImg, title: "Zona de relax", desc: "Desconecta y recarga energías" },
+  { img: meetingImg, title: "Cabinas de videollamadas", desc: "Espacio privado y silencioso para tus calls" },
   { img: kitchenImg, title: "Cocina equipada", desc: "Café, nevera y todo para tu pausa" },
   { img: petImg, title: "Pet friendly", desc: "Trae a tu peludo compañero" },
-  { img: meetingImg, title: "Sala de reuniones", desc: "Espacio privado para tus calls" },
+  { img: relaxImg, title: "Zona de relax", desc: "Desconecta y recarga energías" },
 ];
 
 const SpacesSection = () => {
@@ -40,7 +40,7 @@ const SpacesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`group relative overflow-hidden rounded-xl ${i === 0 ? "md:col-span-2 lg:col-span-2 aspect-[2/1]" : "aspect-[4/3]"}`}
+              className={`group relative overflow-hidden rounded-xl ${i === 0 ? "md:col-span-2 lg:col-span-2 aspect-[2/1]" : i === 1 ? "min-h-full" : "aspect-[4/3]"}`}
             >
               <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />

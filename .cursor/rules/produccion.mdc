@@ -1,0 +1,14 @@
+---
+description: Contexto de infraestructura y despliegue a producción
+alwaysApply: true
+---
+
+# Despliegue a producción
+
+## Variables de entorno
+- La clave de Web3Forms (`VITE_WEB3FORMS_KEY`) está en `.env.local` (no se sube al repo).
+- En producción NO se usa `.env.local`: hay que configurar la variable `VITE_WEB3FORMS_KEY` directamente en el panel de la plataforma de hosting (Vercel, Netlify, etc.).
+- El valor de la key es el mismo para local y producción (Web3Forms no distingue entornos).
+
+## Pendiente
+- Cuando el usuario indique la plataforma de hosting (Vercel, Netlify, GitHub Pages...), guiarle paso a paso para configurar `VITE_WEB3FORMS_KEY` en el panel de variables de entorno de dicha plataforma antes de hacer el build de producción.

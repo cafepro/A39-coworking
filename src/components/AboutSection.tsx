@@ -3,11 +3,11 @@ import { Wifi, Coffee, Printer, Clock, Dog, Bike } from "lucide-react";
 
 const features = [
   { icon: Wifi, title: "WiFi de alta velocidad", desc: "Conexión estable para trabajar sin interrupciones" },
-  { icon: Coffee, title: "Café ilimitado", desc: "Y alguna cerveza también para los momentos de relax" },
-  { icon: Printer, title: "Impresora", desc: "Imprime tus documentos siempre que lo necesites" },
   { icon: Clock, title: "Acceso 24/7", desc: "Trabaja en el horario que mejor se adapte a ti" },
-  { icon: Dog, title: "Pet friendly", desc: "Tu mascota es bienvenida en nuestro espacio" },
   { icon: Bike, title: "Parking de bicis", desc: "Espacio seguro para dejar tu bici" },
+  { icon: Coffee, title: "Café y té", desc: "Y alguna cerveza también para los momentos de relax" },
+  { icon: Dog, title: "Pet friendly", desc: "Tu amigo peludo es bienvenida en nuestro espacio" },
+  { icon: Printer, title: "Impresora", desc: "Imprime tus documentos siempre que lo necesites" },
 ];
 
 const AboutSection = () => {
