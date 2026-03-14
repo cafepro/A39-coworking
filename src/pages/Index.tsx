@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import DisclaimerBanner from "@/components/DisclaimerBanner";
+// import DisclaimerBanner from "@/components/DisclaimerBanner";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SpacesSection from "@/components/SpacesSection";
@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="fixed top-0 left-0 right-0 z-50">
-        <DisclaimerBanner />
+        {/* <DisclaimerBanner /> */}
         <Navbar />
       </div>
       <HeroSection />
