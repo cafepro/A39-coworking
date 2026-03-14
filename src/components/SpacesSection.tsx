@@ -5,7 +5,7 @@ import relaxImg from "@/assets/relax-zone.jpg";
 import kitchenImg from "@/assets/kitchen.jpg";
 import workspaceImg from "@/assets/workspace.jpg";
 import petImg from "@/assets/petfriendly.jpg";
-import meetingImg from "@/assets/meeting-room.jpg";
+import meetingImg from "@/assets/video-booths.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const images = [workspaceImg, meetingImg, kitchenImg, petImg, relaxImg];

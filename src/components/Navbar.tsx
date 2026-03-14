@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Language } from "@/i18n/translations";
@@ -41,8 +41,9 @@ const Navbar = () => {
           ))}
           <button
             onClick={toggleLanguage}
-            className="text-sm font-semibold font-heading text-muted-foreground hover:text-primary transition-colors border border-border rounded-md px-2.5 py-1"
+            className="flex items-center gap-1.5 text-sm font-semibold font-heading text-muted-foreground hover:text-primary transition-colors border border-border rounded-md px-2.5 py-1"
           >
+            <Globe size={14} />
             {language === "es" ? "EN" : "ES"}
           </button>
         </div>
@@ -51,8 +52,9 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={toggleLanguage}
-            className="text-sm font-semibold font-heading text-muted-foreground hover:text-primary transition-colors border border-border rounded-md px-2.5 py-1"
+            className="flex items-center gap-1.5 text-sm font-semibold font-heading text-muted-foreground hover:text-primary transition-colors border border-border rounded-md px-2.5 py-1"
           >
+            <Globe size={14} />
             {language === "es" ? "EN" : "ES"}
           </button>
           <button

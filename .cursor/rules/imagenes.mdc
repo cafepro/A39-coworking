@@ -1,0 +1,27 @@
+---
+description: Convenciones para el manejo de imágenes del proyecto
+alwaysApply: true
+---
+
+# Imágenes
+
+## Ubicación
+- Las imágenes del proyecto viven en `src/assets/`.
+- Dimensiones de referencia de las fotos actuales: **800×600px** (ratio 4:3, landscape).
+
+## Antes de sustituir una imagen
+- Renombrar la imagen existente añadiendo el sufijo `-old` (ej: `meeting-room.jpg` → `meeting-room-old.jpg`).
+- Nunca borrar la imagen anterior directamente.
+
+## Ajuste de dimensiones
+- **NUNCA usar `--resampleHeightWidth` directamente** si la imagen tiene proporciones distintas al destino — deforma la foto.
+- El proceso correcto es **recortar primero, redimensionar después**:
+  1. Calcular el crop para obtener ratio 4:3 sin deformar (ej: imagen 768×1024 → crop 768×576 desde arriba).
+  2. Redimensionar el resultado a 800×600.
+- Comandos con `sips` (disponible en macOS, no requiere instalación):
+  ```bash
+  # Paso 1: recortar desde arriba manteniendo proporciones
+  sips --cropToHeightWidth <alto_crop> <ancho_crop> --cropOffset 0 0 <fichero>
+  # Paso 2: redimensionar al tamaño destino
+  sips --resampleHeightWidth 600 800 <fichero>
+  ```
